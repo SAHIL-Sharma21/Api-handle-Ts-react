@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+
+  //2 ways to call api >>> 1st is fetch and other is using library called axios
+
+  //1st using fetch 
+  // when the componets load for the first time then useEffect will call the api for the very first time.
+  useEffect(() => {
+    //making api call
+    fetch('https://fakestoreapi.com/products')
+    // .then((response) => console.log(response))
+     //we are getting readable stream from the backend so we need to parse it.
+     .then((response) => response)// returing response from here are going to parse it
+     .then((responseData) => responseData.json()) // converted above response to json and parsed it into json and we can console log the data.
+     .then((data) => console.log(data)) // logging the whole data 
+     .catch((error) => console.log(error));
+
+  }, []);
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Api Handle in TS + react </h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
 
-export default App
+export default App;
