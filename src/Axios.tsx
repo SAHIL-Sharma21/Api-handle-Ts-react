@@ -12,6 +12,10 @@ interface PoductList {
     price: number,
     description: string,
     image: string,
+    rating: {
+        count: number,
+        rate: number
+    }
 }
 
     //making state
@@ -37,6 +41,7 @@ interface PoductList {
                         <h1>title: {val.title}</h1>
                         <h2>price: {val.price}</h2>
                         <p>desc: {val.description}</p>
+                        <p>Rating: {val.rating.rate} count: {val.rating.count}</p>
                     </div>
                 ))}
             </div>
