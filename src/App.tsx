@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css'
+import MyAxios from './Axios';
 
 const App = () => {
 
@@ -51,6 +52,9 @@ interface ProductItem {
               <p>Rating: count: {product.rating.count}  rate: {product.rating.rate}</p>
             </div>
           ))}
+
+          <h2>using Aios</h2>
+          <MyAxios />
       </div>
     </>
   )
