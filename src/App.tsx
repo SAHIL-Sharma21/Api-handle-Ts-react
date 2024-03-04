@@ -42,18 +42,18 @@ interface ProductItem {
   return (
     <>
       <div>
-        <h1>Api Handle in TS + react </h1>
+        <h1 className='text-orange-600  text-4xl font-poppins font-semibold mb-4'>Api Handle in TS + react </h1>
           {products && products.map((product) => (
             <div key={product.id}>
               <img src={product.image}  alt = {product.category}/>
-              <h2>title: {product.title}</h2>
+              <h2 className='font-roboto text-xl text-amber-600 font-medium'>title: {product.title}</h2>
               <p>Price: {product.price}</p>
               <p>Description: {product.description}</p>
               <p>Rating: count: {product.rating.count}  rate: {product.rating.rate}</p>
             </div>
           ))}
 
-          <h2>using Aios</h2>
+          <h2>using Axios</h2>
           <MyAxios />
       </div>
     </>
